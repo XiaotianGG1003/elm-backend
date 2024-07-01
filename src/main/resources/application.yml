@@ -1,0 +1,25 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8090
+#数据库连接池
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/elm?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
+#mybatis配置
+mybatis:
+  configuration:
+    auto-mapping-behavior: full #列名和属性名一致的情况，会全自动映射
+
+#热部署配置
+devtools:
+  restart:
+    enabled: true
+#logback记日志
+logging:
+  level:
+    com.six.elm.mapper: debug
+
+
