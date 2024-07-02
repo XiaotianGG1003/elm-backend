@@ -12,6 +12,9 @@ spring:
 mybatis:
   configuration:
     auto-mapping-behavior: full #列名和属性名一致的情况，会全自动映射
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
 
 #热部署配置
 devtools:
