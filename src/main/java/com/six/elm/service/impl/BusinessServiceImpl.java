@@ -1,5 +1,6 @@
 package com.six.elm.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.six.elm.mapper.BusinessMapper;
 import com.six.elm.po.Business;
 import com.six.elm.service.BusinessService;
@@ -10,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class BusinessServiceImpl implements BusinessService{
+public class BusinessServiceImpl extends ServiceImpl<BusinessMapper, Business> implements BusinessService{
     @Autowired
     private BusinessMapper businessMapper;
     @Override
