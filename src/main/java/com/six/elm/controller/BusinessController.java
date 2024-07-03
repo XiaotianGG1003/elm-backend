@@ -31,6 +31,12 @@ public class BusinessController {
         return businessService.list(queryWrapper);
     }
 
+    @RequestMapping("/getBusinessByName")
+    public List<Business> getBusinessByName(Business business){
+        QueryWrapper<Business> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("businessName",business.getBusinessName());
+        return businessService.list(queryWrapper);
+    }
 }
 
 

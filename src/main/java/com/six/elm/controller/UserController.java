@@ -1,7 +1,10 @@
 package com.six.elm.controller;
 
 import com.six.elm.po.User;
+import com.six.elm.po.UserVO;
 import com.six.elm.service.UserService;
+import com.six.elm.utils.TokenUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +27,15 @@ public class UserController {
         return userService.saveUser(user);
     }
     @RequestMapping("/getUserByName")
-    public User getUserByName(User user) throws Exception{
-        return userService.getUserByName(user);
+    public UserVO getUserByName(User user) throws Exception{
+        User u = userService.getUserByName(user);
+        if (user != null) {
+            String token = TokenUtils.createToken(user.getUserId());
+            UserVO userVO = new UserVO();
+            BeanUtils.copyProperties(u, userVO);
+            userVO.setToken(token);
+            return userVO;
+        }
+        return null;
     }
 }
