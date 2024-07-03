@@ -35,4 +35,9 @@ public class OrdersController {
         orders.setOrderState(1);
         return ordersService.updateById(orders);
     }
+
+    @RequestMapping("/removeOrder")
+    public Boolean removeOrder(Integer orderId){
+        return ordersService.removeById(orderId);
+    }
 }
